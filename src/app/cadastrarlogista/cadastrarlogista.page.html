@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Cadastre-se como Logista</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form [formGroup]="formGroup" (ngSubmit)="cadastrar()">
+    <ion-list>
+      <ion-item>
+        <ion-label floating>Nome da Empresa</ion-label>
+        <ion-input formControlName="nome" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Telefone</ion-label>
+        <ion-input formControlName="telefone" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Email</ion-label>
+        <ion-input formControlName="email" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>CNPJ</ion-label>
+        <ion-input formControlName="cnpj" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Endereço</ion-label>
+        <ion-input formControlName="endereco" type="text"></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-button expand="full" (click)="cadastrar()">Cadastrar</ion-button>
+  </form>
+
+</ion-content>

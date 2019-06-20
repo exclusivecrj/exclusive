@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Atualizar roupa</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="formGroup">
+
+    <ion-list>
+      <ion-item>
+        <ion-label floating>Nome da peça</ion-label>
+        <ion-input formControlName="roupa" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Preço</ion-label>
+        <ion-input formControlName="preco" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Modelo</ion-label>
+        <ion-input formControlName="modelo" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Marca</ion-label>
+        <ion-input formControlName="marca" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Cor</ion-label>
+        <ion-input formControlName="cor" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="images"></ion-icon>
+        <input type="file" (change)="enviaArquivo($event)" />
+      </ion-item>
+
+    </ion-list>
+    <ion-button expand="full" (click)="atualizar()">Atualizar</ion-button>
+  </form>
+
+</ion-content>
