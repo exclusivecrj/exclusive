@@ -28,6 +28,8 @@ export class CarrinhoPage implements OnInit {
     this.pedido = this.storageServ.getCart();
   }
 
+
+  // ion-fab dos redirecionamentos
   cart(){
     this.router.navigate(['/carrinho'])
   }

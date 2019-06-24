@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-inicio',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InicioPage implements OnInit {
 
-  constructor() { }
+  constructor(public router : Router) { }
 
   ngOnInit() {  
   }
@@ -24,6 +25,20 @@ export class InicioPage implements OnInit {
 
   gerar(){
     
+  }
+
+  // ion-fab dos redirecionamentos
+  cart(){
+    this.router.navigate(['/carrinho'])
+  }
+  search(){
+    this.router.navigate(['/roupas'])
+  }
+  contact(){
+    this.router.navigate(['/quem'])
+  }
+  logout(){
+    this.router.navigate(['/logoff'])
   }
 
 }

@@ -65,4 +65,18 @@ export class ListaDeClientesPage implements OnInit {
     });
     await loading.present();
   } 
+
+  // ion-fab dos redirecionamentos
+  cart(){
+    this.router.navigate(['/carrinho'])
+  }
+  search(){
+    this.router.navigate(['/roupas'])
+  }
+  contact(){
+    this.router.navigate(['/quem'])
+  }
+  logout(){
+    this.router.navigate(['/logoff'])
+  }
 }

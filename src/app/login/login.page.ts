@@ -83,4 +83,9 @@ export class LoginPage implements OnInit {
       })
   }
 
+  user(){
+    this.router.navigate(['/home']);
+    this.loadingController.dismiss();
+  }
+
 }

@@ -97,19 +97,5 @@ export class AppComponent {
       this.splashScreen.hide();
     });
 
-    this.firebaseauth.authState
-    .subscribe(
-      user => {
-        if (user) {
-          this.router.navigate(['/inicio']);
-          } else {
-            this.router.navigate(['/home']);
-          }
-      },
-      () => {
-        this.router.navigate(['/roupas']);
-      }
-    );
-
   }
 }

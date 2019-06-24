@@ -15,24 +15,19 @@ export class QuemPage implements OnInit {
   ngOnInit() {
   }
 
-  insta(){
-    this.router.navigate(['https://www.instagram.com/exclusiveclothingrj/']);
-  }
-  git(){
-    
-  }
-  tt(){
-    
-  }
-  face(){
-    
-  }
-  email(){
-    
-  }
-  linkedin(){
-    
-  }
+// ion-fab dos redirecionamentos
+cart(){
+  this.router.navigate(['/carrinho'])
+}
+search(){
+  this.router.navigate(['/roupas'])
+}
+contact(){
+  this.router.navigate(['/quem'])
+}
+logout(){
+  this.router.navigate(['/logoff'])
+}
 
 
 }
