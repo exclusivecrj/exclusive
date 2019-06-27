@@ -20,10 +20,10 @@ export class RoupasPage implements OnInit {
 
   @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
   @ViewChild("textoBusca") textoBusca;
-  
-  
 
-  
+
+
+
   listaDeRoupas: roupas[] = [];
   firestore = firebase.firestore();
   imagem;
@@ -34,8 +34,8 @@ export class RoupasPage implements OnInit {
 
   pedido: Pedido = new Pedido();
 
-  
-  
+
+
 
 
   constructor(public router: Router,
@@ -45,13 +45,13 @@ export class RoupasPage implements OnInit {
     public popoverController: PopoverController,
     public activateRoute: ActivatedRoute) {
 
-    
+
 
     this.filtro = this.activateRoute.snapshot.paramMap.get('filtro');
     this.valor = this.activateRoute.snapshot.paramMap.get('valor');
 
 
-    
+
 
     if (this.storageServ.getCart() == null) {
       this.pedido = this.storageServ.getCart()
@@ -61,64 +61,63 @@ export class RoupasPage implements OnInit {
 
 
   }
-/*
-  loadData(event) {
-    setTimeout(() => {
-      console.log('Done');
-      event.target.complete();
-
-      // App logic to determine if all data is loaded
-      // and disable the infinite scroll
-      if (this.loadData.length == 1000) {
-        event.target.disabled = true;
-      }
-    }, 500);
-  }
-
-  toggleInfiniteScroll() {
-    this.infiniteScroll.disabled = !this.infiniteScroll.disabled;
-  }
-*/
+  /*
+    loadData(event) {
+      setTimeout(() => {
+        console.log('Done');
+        event.target.complete();
+  
+        // App logic to determine if all data is loaded
+        // and disable the infinite scroll
+        if (this.loadData.length == 1000) {
+          event.target.disabled = true;
+        }
+      }, 500);
+    }
+  
+    toggleInfiniteScroll() {
+      this.infiniteScroll.disabled = !this.infiniteScroll.disabled;
+    }
+  */
 
   ngOnInit() {
-    if(this.filtro==null)
+    if (this.filtro == null)
       this.getList();
 
   }
 
-  busca(){
+  busca() {
     console.log(this.textoBusca.value)
-    
+
     this.listaDeRoupas = [];
-      var ref = firebase.firestore().collection("roupas");
-      ref.orderBy('roupa').startAt(this.textoBusca.value).get().then(doc=> {
+    var ref = firebase.firestore().collection("roupas");
 
-        
+    ref.orderBy('roupa').startAfter(this.textoBusca.value).endAt(this.textoBusca.value + '\uf8ff').get().then(doc => {
 
-        if (doc.size>0) {
-          
-          doc.forEach(doc =>{
+      if (doc.size > 0) {
 
-            let r = new roupas();
-            r.setDados(doc.data());
-            r.id = doc.id;
-            
-            let ref = firebase.storage().ref().child(`roupas/${doc.id}.jpg`).getDownloadURL().then(url => {
-              r.img = url;
-              console.log(r);
-              this.listaDeRoupas.push(r);
-            }).catch(err => {
-              this.listaDeRoupas.push(r);
-            })
+        doc.forEach(doc => {
 
+          let r = new roupas();
+          r.setDados(doc.data());
+          r.id = doc.id;
+
+          let ref = firebase.storage().ref().child(`roupas/${doc.id}.jpg`).getDownloadURL().then(url => {
+            r.img = url;
+            console.log(r);
+            this.listaDeRoupas.push(r);
+          }).catch(err => {
+            this.listaDeRoupas.push(r);
           })
-          
+
+        })
+
       } else {
-          // doc.data() will be undefined in this case
-          console.log("No such document!");
+        // doc.data() will be undefined in this case
+        console.log("No such document!");
       }
-      })
-    
+    })
+
     //this.router.navigate(['/roupas', { 'filtro': "busca" }]);
   }
 
@@ -220,15 +219,15 @@ export class RoupasPage implements OnInit {
   }
 
   filter() {
-    
+
   }
 
 
-  
+
   async presentPopover() {
     const popoverController = document.querySelector('ion-popover-controller');
     await popoverController.componentOnReady();
-  
+
     const popoverElement = await popoverController.create({
       component: 'profile-page',
       event: event
@@ -237,16 +236,16 @@ export class RoupasPage implements OnInit {
   }
 
   // ion-fab dos redirecionamentos
-  cart(){
+  cart() {
     this.router.navigate(['/carrinho'])
   }
-  search(){
+  search() {
     this.router.navigate(['/roupas'])
   }
-  contact(){
+  contact() {
     this.router.navigate(['/quem'])
   }
-  logout(){
+  logout() {
     this.router.navigate(['/logoff'])
   }
 

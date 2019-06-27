@@ -11,72 +11,95 @@ import { LoadingController } from '@ionic/angular';
 })
 export class NossasMarcasPage implements OnInit {
 
- 
+
   nossasMarcas: Marcas[] = [];
   firestore = firebase.firestore();
   settings = { timestampsInSnapshots: true };
 
   constructor(public router: Router,
-    public loadingController : LoadingController) {
+    public loadingController: LoadingController) {
 
-     }
-     ngOnInit() {
-       this.getList();
-    }
+  }
+  ngOnInit() {
+    this.getList();
+  }
 
-    viewMarca(obj: Marcas) {
-      this.router.navigate(['/marca-view', { 'marcas' : obj.id }]);
-  
-    }
-  
-    getList() {
-      this.loading();
-  
+  viewMarca(obj: Marcas) {
+    this.router.navigate(['/marca-view', { 'marcas': obj.id }]);
+  }
+  adidas(obj: Marcas) {
+    this.router.navigate(['/adidas', { 'marcas': obj.id }]);
+  }
+  nike(obj: Marcas) {
+    this.router.navigate(['/nike', { 'marcas': obj.id }]);
+  }
+  calvinKlein(obj: Marcas) {
+    this.router.navigate(['/calvin-klein', { 'marcas': obj.id }]);
+  }
+  zara(obj: Marcas) {
+    this.router.navigate(['/zara', { 'marcas': obj.id }]);
+  }
+  forever(obj: Marcas) {
+    this.router.navigate(['/forever', { 'marcas': obj.id }]);
+  }
+  oakley(obj: Marcas) {
+    this.router.navigate(['/oakley', { 'marcas': obj.id }]);
+  }
+  lacoste(obj: Marcas) {
+    this.router.navigate(['/lacoste', { 'marcas': obj.id }]);
+  }
+  mrCat(obj: Marcas) {
+    this.router.navigate(['/mr-cat', { 'marcas': obj.id }]);
+  }
 
-      var ref = firebase.firestore().collection("marcas");
-      ref.get().then(query => {
-        query.forEach(doc => {
-          let m = new Marcas();
-          m.setDados(doc.data());
-          m.id = doc.id;
-          this.nossasMarcas.push(m);
-        });
-        this.loadingController.dismiss();     
-  
+  getList() {
+    this.loading();
+
+
+    var ref = firebase.firestore().collection("marcas");
+    ref.get().then(query => {
+      query.forEach(doc => {
+        let m = new Marcas();
+        m.setDados(doc.data());
+        m.id = doc.id;
+        this.nossasMarcas.push(m);
       });
-  
-    }
+      this.loadingController.dismiss();
 
-    remove(obj: Marcas) {
-      var ref = firebase.firestore().collection("marcas");
-      ref.doc(obj.id).delete()
-        .then(() => {
-          this.nossasMarcas = [];
-          this.getList();
-        }).catch(() => {
-          console.log('Erro ao atualizar');
-        })
-    }
-      
-    async loading() {
-      const loading = await this.loadingController.create({
-        message: 'Carregando',
-        duration: 2000
-      });
-      await loading.present();
-    } 
+    });
 
-    // ion-fab dos redirecionamentos
-  cart(){
+  }
+
+  remove(obj: Marcas) {
+    var ref = firebase.firestore().collection("marcas");
+    ref.doc(obj.id).delete()
+      .then(() => {
+        this.nossasMarcas = [];
+        this.getList();
+      }).catch(() => {
+        console.log('Erro ao atualizar');
+      })
+  }
+
+  async loading() {
+    const loading = await this.loadingController.create({
+      message: 'Carregando',
+      duration: 2000
+    });
+    await loading.present();
+  }
+
+  // ion-fab dos redirecionamentos
+  cart() {
     this.router.navigate(['/carrinho'])
   }
-  search(){
+  search() {
     this.router.navigate(['/roupas'])
   }
-  contact(){
+  contact() {
     this.router.navigate(['/quem'])
   }
-  logout(){
+  logout() {
     this.router.navigate(['/logoff'])
   }
-  } 
+} 

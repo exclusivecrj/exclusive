@@ -2,6 +2,7 @@ export class Marcas{
 
     id: string;
     nome: string;
+    desc: string;
 
     constructor(){
 

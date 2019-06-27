@@ -43,6 +43,7 @@ export class HomePage {
         console.log('Logado com sucesso');
         this.toast('Login efetuado com sucesso');
         this.loadingController.dismiss();
+        this.router.navigate(['/inicio']);
       })
       .catch(() => {
         console.log('Login Inválido');
@@ -56,6 +57,7 @@ export class HomePage {
       .then(() => {
         console.log("Cadastrado com sucesso!");
         this.toast('Cadastrado com sucesso');
+        this.router.navigate(['/cadastro-de-cliente']);
         this.loadingController.dismiss();
       }).catch(() => {
         console.log("Usuário inválido");

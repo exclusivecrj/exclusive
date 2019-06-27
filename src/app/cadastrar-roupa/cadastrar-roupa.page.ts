@@ -98,4 +98,11 @@ export class CadastrarRoupaPage implements OnInit {
       })
   }
 
+  cart(){
+    this.router.navigate(['/carrinho'])
+  }
+  search(){
+    this.router.navigate(['/roupas'])
+  } 
+
 }

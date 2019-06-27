@@ -78,6 +78,11 @@ export class AppComponent {
       url: '/login',
       icon: 'log-in'
     },
+    {
+      title: 'Logista Page',
+      url: '/logista',
+      icon: ''
+    },
   ];
   //cadastro-de-clientes
 

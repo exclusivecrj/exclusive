@@ -1,18 +1,27 @@
-<ion-header>
-  <ion-row>
-    <ion-col offset="4.5">
-      <div class="menu">
-        <img class="logoimg" src="../../assets/img/logo4.png">
-      </div>
-    </ion-col>
-  </ion-row>
+<ion-header class="header">
+
+  <ion-buttons slot="start">
+    <ion-menu-button>
+      <ion-icon class="icon" name="list"></ion-icon>
+    </ion-menu-button>
+
+    <img class="menu" src="../../assets/img/logo13.png">
+
+    <ion-button slot="end">
+      <ion-icon name="cart" class="icon2" (click)="cart()"></ion-icon>
+    </ion-button>
+    <ion-button slot="end">
+      <ion-icon name="search" class="icon2" (click)="search()"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+
 </ion-header>
 
 
 <ion-content>
 
   <ion-card>
-    <ion-card-header>
+    <ion-card-header class="title">
       <ion-card-title>FIQUE POR DENTRO DAS NOVIDADES AQUI!</ion-card-title>
     </ion-card-header>
     <ion-slides pager="true" autoplay="true" [options]="slideOpts">
@@ -41,12 +50,15 @@
   <p></p>
 
   <ion-card>
-    <ion-card-header>
-      <ion-card-title>Desconto nos dias 20 á 29 em agosto!</ion-card-title>
-      <ion-card-subtitle>Toda linha Nike com 20% de desconto, fique por dentro e não perca nossos eventos!!</ion-card-subtitle>
-      <a href="https://www.nike.com.br/">
-        <ion-button color="dark">Vá para linha Nike</ion-button>
-      </a>
+    <ion-card-header class="textt">
+      <ion-card-title>DESCONTOS DO DIA 20 Á 29 DE AGOSTO</ion-card-title>
+      <ion-card-subtitle>TODA LINHA NIKE COM 20% DE DESCONTO, FIQUE POR DENTRO E NÃO PERCA.</ion-card-subtitle>
+      <p></p>
+      <div style="text-align: center">
+        <a href="https://www.nike.com.br/">
+          <ion-button color="dark">VÁ PARA NIKE</ion-button>
+        </a>
+      </div>
     </ion-card-header>
 
   </ion-card>
@@ -54,12 +66,18 @@
   <p></p>
 
   <ion-card>
-    <ion-card-header>
-      <ion-card-title>Desconto em toda Linha Zara</ion-card-title>
-      <ion-card-subtitle>Toda linha Zara com 40% de desconto, não perca nossas promoções fique por dentro.</ion-card-subtitle>
-      <a href="https://www.zara.com/br/">
-        <ion-button color="dark">Vá para linha Zara</ion-button>
-      </a>
+    <ion-card-header class="textt">
+      <ion-card-title>QUEIMA DE ESTOQUE ZARA</ion-card-title>
+      <ion-card-subtitle>TODA LINHA ZARA COM 50% DE DESCONTO NA QUEIMA DE ESTOQUE, CORRA E GARANTA SUA PEÇA.</ion-card-subtitle>
+      <p></p>
+      <div style="text-align:center">
+        <a href="https://www.zara.com/br/">
+
+          <ion-button color="dark">VÁ PARA ZARA</ion-button>
+
+        </a>
+      </div>
+
     </ion-card-header>
 
   </ion-card>
@@ -70,14 +88,15 @@
 
 
   <ion-card>
-    <ion-card-header>
-      <ion-card-title>Retire seu Cupom de desconto!</ion-card-title>
-      <ion-card-subtitle>Retire aqui seu cupom de desconto, que pode ser usado em qualquer linha de roupa do nosso site! clique a baixo para
-        retirada.
-      </ion-card-subtitle>
-      <a href="https://www.picodi.com/br/?kid=559375&gclid=Cj0KCQjwrdjnBRDXARIsAEcE5Yl1bpFah_cnGpAjw6QM4Oh7S8V9SxkdF19Kc6Q7z-cQvPqUF2LgsI8aAvC3EALw_wcB">
-        <ion-button color="dark">Retire o cupom</ion-button>
-      </a>
+    <ion-card-header class="textt">
+      <ion-card-title>CUPOM 10% OFF</ion-card-title>
+      <ion-card-subtitle>RETIRE AQUI SEU CUPOM DE 10% DE DESCONTO EM QUALQUER COMPRA DO SITE, CLIQUE ABAIXO.</ion-card-subtitle>
+      <p></p>
+      <div style="text-align:center">
+        <a href="https://www.picodi.com/br/?kid=559375&gclid=Cj0KCQjwrdjnBRDXARIsAEcE5Yl1bpFah_cnGpAjw6QM4Oh7S8V9SxkdF19Kc6Q7z-cQvPqUF2LgsI8aAvC3EALw_wcB">
+          <ion-button color="dark">RETIRE O CUPOM</ion-button>
+        </a>
+      </div>
     </ion-card-header>
 
   </ion-card>
@@ -85,12 +104,11 @@
   <p> </p>
 
   <ion-card>
-    <ion-card-header>
-      <ion-card-title>Fique por dentro das novidades do nosso App e receba descontos!</ion-card-title>
-      <ion-card-subtitle>Ative as notificações do nosso aplicativo e concorra á descontos exclusivos em toda linha de roupas do app! </ion-card-subtitle>
+    <ion-card-header class="textt">
+      <ion-card-title>FIQUE POR DENTRO DAS NOVIDADES DO NOSSO APP!</ion-card-title>
+      <ion-card-subtitle>ATIVE AS NOTIFICAÇÕES DO NOSSO APP E CONCORRA A DESCONTOS EXCLUSIVOS EM LINHAS EXCLUSIVAS!! </ion-card-subtitle>
     </ion-card-header>
   </ion-card>
-
   <ion-fab class="contat" vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button>
       <ion-icon name="settings"></ion-icon>
@@ -115,30 +133,4 @@
 
     </ion-fab-list>
   </ion-fab>
-
 </ion-content>
-
-
-<!--
-  <ion-footer>
-      <ion-tabs>
-          <ion-tab tab="home">Home Content</ion-tab>
-          <ion-tab tab="settings">Settings Content</ion-tab>
-        
-          <ion-tab-bar slot="bottom">
-        
-            <ion-tab-button tab="home">
-              <ion-label>Home</ion-label>
-              <ion-icon name="home"></ion-icon>
-              <ion-badge>6</ion-badge>
-            </ion-tab-button>
-        
-            <ion-tab-button tab="settings">
-              <ion-label>Settings</ion-label>
-              <ion-icon name="settings"></ion-icon>
-            </ion-tab-button>
-        
-          </ion-tab-bar>
-        </ion-tabs>
-  </ion-footer> 
--->

@@ -80,7 +80,39 @@ const routes: Routes = [
   {
     path: 'logista',
     loadChildren: './logista/logista.module#LogistaPageModule'
+  },
+  {
+    path: 'adidas',
+    loadChildren: './adidas/adidas.module#AdidasPageModule'
+  },
+  {
+    path: 'calvin-klein',
+    loadChildren: './calvin-klein/calvin-klein.module#CalvinKleinPageModule'
+  },
+  {
+    path: 'forever',
+    loadChildren: './forever/forever.module#ForeverPageModule'
+  },
+  {
+    path: 'lacoste',
+    loadChildren: './lacoste/lacoste.module#LacostePageModule'
+  },
+  {
+    path: 'mr-cat',
+    loadChildren: './mr-cat/mr-cat.module#MrCatPageModule'
+  },
+  {
+    path: 'nike',
+    loadChildren: './nike/nike.module#NikePageModule'
+  },
+  {
+    path: 'oakley',
+    loadChildren: './oakley/oakley.module#OakleyPageModule'
+  },
+  {
+    path: 'zara', loadChildren: './zara/zara.module#ZaraPageModule'
   }
+
 
 
 

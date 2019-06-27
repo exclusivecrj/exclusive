@@ -1,288 +1,256 @@
-<ion-content>
+<ion-header class="header">
 
-  <ion-row>
+  <ion-buttons slot="start">
+    <ion-menu-button>
+      <ion-icon class="icon" name="list"></ion-icon>
+    </ion-menu-button>
 
-    <ion-col offset="2">
-      <div class="menu">
-        <img width="75%" class="logoimg" src="../../assets/img/logo4.png">
-      </div>
+    <img class="menu" src="../../assets/img/logo13.png">
 
-    </ion-col>
-  </ion-row>
+    <ion-button slot="end">
+      <ion-icon name="cart" class="icon2"></ion-icon>
+    </ion-button>
+    <ion-button slot="end">
+      <ion-icon name="search" class="icon2"></ion-icon>
+    </ion-button>
+  </ion-buttons>
 
-
-
-
-  <ion-row>
-    <ion-col align-self-center text-center>
-      <ion-card class="card" *ngFor="let marcas of nossasMarcas">
-        <div>
-          <img class="test"src="data:image/png;base64,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">
-        </div>
-        <ion-card-header>
-          <ion-card-title>Tommy Hilfiger</ion-card-title>
-          <ion-card-subtitle> A TOMMY HILFIGER é uma das marcas de lifestyle mais famosas do mundo e é reconhecida internacionalmente por celebrar
-            a essência do estilo cool clássico americano, apresentando um twi formal st projetos.</ion-card-subtitle>
-        </ion-card-header>
-
-        <ion-card-content>
-
-        </ion-card-content>
-        <ion-row>
-          <ion-col offset="2" size="4" align-self-center text-center>
-            <button type="button" class="btn btn-info" (click)="viewMarca(marcas)" size="large">Ver mais</button>
-          </ion-col>
-          <ion-col size="4" align-self-center text-center>
-            <button type="button" class="btn btn-danger" (click)="remove(marcas)" size="large">Excluir</button>
-          </ion-col>
-        </ion-row>
-      </ion-card>
-    </ion-col>
-  </ion-row>
-
-  <ion-row>
-    <ion-col align-self-center text-center>
-      <ion-card *ngFor="let marcas of nossasMarcas">
-        <div>
-          <img width="75%" src="https://logotipo.pt/wp-content/uploads/2010/01/lacoste.jpg">
-        </div>
-        <ion-card-header>
-          <ion-card-title>Lacoste</ion-card-title>
-          <ion-card-subtitle>A LACOSTE tem o compromisso de desenvolver produtos que combinem inovação, qualidade e elegância.</ion-card-subtitle>
-        </ion-card-header>
-
-        <ion-card-content>
-
-        </ion-card-content>
-        <ion-row>
-          <ion-col offset="2" size="4" align-self-center text-center>
-            <button type="button" class="btn btn-info" (click)="viewMarca(marcas)" size="large">Ver mais</button>
-          </ion-col>
-          <ion-col size="4" align-self-center text-center>
-            <button type="button" class="btn btn-danger" (click)="remove(marcas)" size="large">Excluir</button>
-          </ion-col>
-        </ion-row>
-      </ion-card>
-    </ion-col>
-  </ion-row>
-
-  <ion-row>
-    <ion-col align-self-center text-center>
-      <ion-card *ngFor="let marcas of nossasMarcas">
-        <div>
-          <img width="75%" src="https://http2.mlstatic.com/estampas-termocolantes-logo-adidas-para-camisas-futebol-D_NQ_NP_636280-MLB27906024120_082018-F.jpg">
-        </div>
-        <ion-card-header>
-          <ion-card-title>Adidas</ion-card-title>
-          <ion-card-subtitle>A adidas tem suas raízes na Alemanha, mas somos uma empresa verdadeiramente global. Em todo o mundo, empregamos
-            mais de 57.000 pessoas.</ion-card-subtitle>
-        </ion-card-header>
-
-        <ion-card-content>
-
-        </ion-card-content>
-        <ion-row>
-          <ion-col offset="2" size="4" align-self-center text-center>
-            <button type="button" class="btn btn-info" (click)="viewMarca(marcas)" size="large">Ver mais</button>
-          </ion-col>
-          <ion-col size="4" align-self-center text-center>
-            <button type="button" class="btn btn-danger" (click)="remove(marcas)" size="large">Excluir</button>
-          </ion-col>
-        </ion-row>
-      </ion-card>
-    </ion-col>
-  </ion-row>
-
-  <ion-row>
-    <ion-col align-self-center text-center>
-      <ion-card *ngFor="let marcas of nossasMarcas">
-        <div>
-          <img width="75%" src="https://www.blogfarm.com.br/wp-content/uploads/2014/09/case-mrcat-685x500.jpg">
-        </div>
-        <ion-card-header>
-          <ion-card-title> Mt.Cat</ion-card-title>
-          <ion-card-subtitle>Empresas bem sucedidas crescem em cima de suas tradições, porém sempre olhando para o futuro. É isso que nós da
-            Mr. Cat procuramos fazer..</ion-card-subtitle>
-        </ion-card-header>
-
-        <ion-card-content>
-
-        </ion-card-content>
-        <ion-row>
-          <ion-col offset="2" size="4" align-self-center text-center>
-            <button type="button" class="btn btn-info" (click)="viewMarca(marcas)" size="large">Ver mais</button>
-          </ion-col>
-          <ion-col size="4" align-self-center text-center>
-            <button type="button" class="btn btn-danger" (click)="remove(marcas)" size="large">Excluir</button>
-          </ion-col>
-        </ion-row>
-      </ion-card>
-    </ion-col>
-  </ion-row>
-
-  <ion-row>
-    <ion-col align-self-center text-center>
-      <ion-card *ngFor="let marcas of nossasMarcas">
-        <div>
-          <img width="75%" src="https://logodownload.org/wp-content/uploads/2014/11/Calvin-klein-logo-9.jpg">
-        </div>
-        <ion-card-header>
-          <ion-card-title>Calvin Klein</ion-card-title>
-          <ion-card-subtitle>NOVA IORQUE, 1968. NASCE PELAS MÃOS DO ESTILISTA CALVIN KLEIN UMA DAS MAIORES GRIFES QUE O MUNDO JÁ CONHECEU.</ion-card-subtitle>
-        </ion-card-header>
-
-        <ion-card-content>
-
-        </ion-card-content>
-        <ion-row>
-          <ion-col offset="2" size="4" align-self-center text-center>
-            <button type="button" class="btn btn-info" (click)="viewMarca(marcas)" size="large">Ver mais</button>
-          </ion-col>
-          <ion-col size="4" align-self-center text-center>
-            <button type="button" class="btn btn-danger" (click)="remove(marcas)" size="large">Excluir</button>
-          </ion-col>
-        </ion-row>
-      </ion-card>
-    </ion-col>
-  </ion-row>
-
-  <ion-row>
-    <ion-col align-self-center text-center>
-      <ion-card *ngFor="let marcas of nossasMarcas">
-        <div>
-          <img width="75%" src="https://digitaldecor.pt/wp-content/uploads/2017/11/u3k9nryh.jpg">
-        </div>
-        <ion-card-header>
-          <ion-card-title>Nike</ion-card-title>
-          <ion-card-subtitle>NÃO MUDE O SEU SONHO. MUDE O MUNDO. JUST DO IT</ion-card-subtitle>
-        </ion-card-header>
-
-        <ion-card-content>
-
-        </ion-card-content>
-        <ion-row>
-          <ion-col offset="2" size="4" align-self-center text-center>
-            <button type="button" class="btn btn-info" (click)="viewMarca(marcas)" size="large">Ver mais</button>
-          </ion-col>
-          <ion-col size="4" align-self-center text-center>
-            <button type="button" class="btn btn-danger" (click)="remove(marcas)" size="large">Excluir</button>
-          </ion-col>
-        </ion-row>
-      </ion-card>
-    </ion-col>
-  </ion-row>
-
-  <ion-row>
-    <ion-col align-self-center text-center>
-      <ion-card *ngFor="let marcas of nossasMarcas">
-        <div>
-          <img width="75%" src="assets/img/oak.jpg">
-        </div>
-        <ion-card-header>
-          <ion-card-title>Oakley</ion-card-title>
-          <ion-card-subtitle>YOU DESIGN THE.</ion-card-subtitle>
-        </ion-card-header>
-
-        <ion-card-content>
-
-        </ion-card-content>
-        <ion-row>
-          <ion-col offset="2" size="4" align-self-center text-center>
-            <button type="button" class="btn btn-info" (click)="viewMarca(marcas)" size="large">Ver mais</button>
-          </ion-col>
-          <ion-col size="4" align-self-center text-center>
-            <button type="button" class="btn btn-danger" (click)="remove(marcas)" size="large">Excluir</button>
-          </ion-col>
-        </ion-row>
-      </ion-card>
-    </ion-col>
-  </ion-row>
-
-  <ion-row>
-    <ion-col align-self-center text-center>
-      <ion-card *ngFor="let marcas of nossasMarcas">
-        <div>
-          <img width="75%" src="data:image/png;base64,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">
-        </div>
-        <ion-card-header>
-          <ion-card-title>Forever 21</ion-card-title>
-          <ion-card-subtitle>DON'T SAY MAYBE IF YOU WANT TO SAY NO.</ion-card-subtitle>
-        </ion-card-header>
-
-        <ion-card-content>
-
-        </ion-card-content>
-        <ion-row>
-          <ion-col offset="2" size="4" align-self-center text-center>
-            <button type="button" class="btn btn-info" (click)="viewMarca(marcas)" size="large">Ver mais</button>
-          </ion-col>
-          <ion-col size="4" align-self-center text-center>
-            <button type="button" class="btn btn-danger" (click)="remove(marcas)" size="large">Excluir</button>
-          </ion-col>
-        </ion-row>
-      </ion-card>
-    </ion-col>
-  </ion-row>
-
-  <ion-row>
-    <ion-col align-self-center text-center>
-      <ion-card *ngFor="let marcas of nossasMarcas">
-        <div>
-          <img width="75%" src="https://abrilmdemulher.files.wordpress.com/2019/01/zara-1.jpg">
-        </div>
-        <ion-card-header>
-          <ion-card-title>Zara</ion-card-title>
-          <ion-card-subtitle>A Zara é uma das principais empresas de moda internacional. Pertence à Inditex, um dos maiores grupos de distribuição
-            do mundo..</ion-card-subtitle>
-        </ion-card-header>
-
-        <ion-card-content>
-
-        </ion-card-content>
-        <ion-row>
-          <ion-col offset="2" size="4" align-self-center text-center>
-            <button type="button" class="btn btn-info" (click)="viewMarca(marcas)" size="large">Ver mais</button>
-          </ion-col>
-          <ion-col size="4" align-self-center text-center>
-            <button type="button" class="btn btn-danger" (click)="remove(marcas)" size="large">Excluir</button>
-          </ion-col>
-        </ion-row>
-      </ion-card>
-    </ion-col>
-  </ion-row>
+</ion-header>
 
 
-  <ion-fab class="contat" vertical="bottom" horizontal="end" slot="fixed">
-      <ion-fab-button>
-        <ion-icon name="settings"></ion-icon>
-      </ion-fab-button>
-      <ion-fab-list class="teste" side="start">
+<ion-content>  
+    <ion-row>
+      <ion-col align-self-center text-center>
+        <ion-card class="card" *ngFor="let marcas of nossasMarcas">
+          <div>
+            <img class="test"src="data:image/png;base64,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">
+          </div>
+          <ion-card-header class="text">
+            <ion-card-title>TOMMY HILFIGER</ion-card-title>
+            <ion-card-subtitle> A TOMMY HILFIGER, ANTERIORMENTE CONHECIDA COMO TOMMY HILFIGER CORPORATION E TOMMY HILFIGER INC., É UMA EMPRESA DE VESTUÁRIO PREMIUM AMERICANA, FABRICANDO VESTUÁRIO, CALÇADO, ACESSÓRIOS, FRAGRÂNCIAS E ARTIGOS DE DECORAÇÃO.</ion-card-subtitle>
+          </ion-card-header>
   
-        <ion-fab-button class="btn" (click)="logout()">
-          <ion-icon class="img" name="log-out"></ion-icon>
-        </ion-fab-button>
+          <ion-card-content>
   
-        <ion-fab-button class="btn" (click)="search()">
-          <ion-icon class="img" name="search"></ion-icon>
-        </ion-fab-button>
+          </ion-card-content>
+          <ion-row>
+            <ion-col offset="2" size="4" align-self-center text-center>
+              <button type="button" class="btn btn-info" (click)="viewMarca(marcas)" size="large">Ver mais</button>
+            </ion-col>
+            <ion-col size="4" align-self-center text-center>
+              <button type="button" class="btn btn-danger" (click)="remove(marcas)" size="large">Excluir</button>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+      </ion-col>
+    </ion-row>
   
-        <ion-fab-button class="btn" (click)="contact()">
-          <ion-icon class="img" name="contact"></ion-icon>
-        </ion-fab-button>
+    <ion-row>
+      <ion-col align-self-center text-center>
+        <ion-card *ngFor="let marcas of nossasMarcas">
+          <div>
+            <img width="75%" src="https://logotipo.pt/wp-content/uploads/2010/01/lacoste.jpg">
+          </div>
+          <ion-card-header class="text">
+            <ion-card-title>LACOSTE</ion-card-title>
+            <ion-card-subtitle>A LACOSTE FOI FUNDADA PELO TENISTA RENÉ LACOSTE JUNTAMENTE COM ANDRÉ GILLIER EM 1933. O TENISTA TINHA SIDO APELIDADO DE "LE CROCODILE" PELA IMPRENSA AMERICANA DURANTE DAVIS CUP EM 1927, POR CAUSA DE UMA APOSTA QUE VALIA UMA MALA DE PELE DE CROCODILO. O ANIMAL ACABOU VIRANDO SÍMBOLO DA MARCA.</ion-card-subtitle>
+          </ion-card-header>
   
-        <ion-fab-button class="btn" (click)="cart()">
-          <ion-icon class="img" name="cart"></ion-icon>
-        </ion-fab-button>
+          <ion-card-content>
   
-      </ion-fab-list>
-    </ion-fab>
+          </ion-card-content>
+          <ion-row>
+            <ion-col offset="2" size="4" align-self-center text-center>
+              <button type="button" class="btn btn-info" (click)="viewMarca(marcas)" size="large">Ver mais</button>
+            </ion-col>
+            <ion-col size="4" align-self-center text-center>
+              <button type="button" class="btn btn-danger" (click)="remove(marcas)" size="large">Excluir</button>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  
+    <ion-row>
+      <ion-col align-self-center text-center>
+        <ion-card *ngFor="let marcas of nossasMarcas">
+          <div>
+            <img width="75%" src="https://http2.mlstatic.com/estampas-termocolantes-logo-adidas-para-camisas-futebol-D_NQ_NP_636280-MLB27906024120_082018-F.jpg">
+          </div>
+          <ion-card-header class="text">
+            <ion-card-title>ADIDAS</ion-card-title>
+            <ion-card-subtitle>ADIDAS É UMA EMPRESA FUNDADA NA ALEMANHA. A EMPRESA TEM O NOME DE SEU FUNDADOR ADOLF DASSLER, TABPEM CONHECIDO PELO APELIDO DE ADI, QUE COMEÇOU A PRODUZIR SAPATILHAS NOS ANOS 1920, JUNTO COM SEU IRMÃO RUDOLF DASSLER, EM HERZOGENAURACH, PRÓXIMO DE NUREMBERG.</ion-card-subtitle>
+          </ion-card-header>
+  
+          <ion-card-content>
+  
+          </ion-card-content>
+          <ion-row>
+            <ion-col offset="2" size="4" align-self-center text-center>
+              <button type="button" class="btn btn-info" (click)="viewMarca(marcas)" size="large">Ver mais</button>
+            </ion-col>
+            <ion-col size="4" align-self-center text-center>
+              <button type="button" class="btn btn-danger" (click)="remove(marcas)" size="large">Excluir</button>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  
+    <ion-row>
+      <ion-col align-self-center text-center>
+        <ion-card *ngFor="let marcas of nossasMarcas">
+          <div>
+            <img width="75%" src="https://www.blogfarm.com.br/wp-content/uploads/2014/09/case-mrcat-685x500.jpg">
+          </div>
+          <ion-card-header>
+            <ion-card-title> MT.CAT</ion-card-title>
+            <ion-card-subtitle>A FRANQUIA MR. CAT NASCEU NA CIDADE DO RIO DE JANEIRO E, DESDE A SUA FUNDAÇÃO , EM 1980 MANTÉM O DIFERENCIAL NO MERCADO DECISIVO PARA O SUCESSO DA MARCA.</ion-card-subtitle>
+          </ion-card-header>
+  
+          <ion-card-content>
+  
+          </ion-card-content>
+          <ion-row>
+            <ion-col offset="2" size="4" align-self-center text-center>
+              <button type="button" class="btn btn-info" (click)="viewMarca(marcas)" size="large">Ver mais</button>
+            </ion-col>
+            <ion-col size="4" align-self-center text-center>
+              <button type="button" class="btn btn-danger" (click)="remove(marcas)" size="large">Excluir</button>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  
+    <ion-row>
+      <ion-col align-self-center text-center>
+        <ion-card *ngFor="let marcas of nossasMarcas">
+          <div>
+            <img width="75%" src="https://logodownload.org/wp-content/uploads/2014/11/Calvin-klein-logo-9.jpg">
+          </div>
+          <ion-card-header class="text">
+            <ion-card-title>CALVIN KLEIN</ion-card-title>
+            <ion-card-subtitle>CALVIN RICHARD KLEIN É UM ESTILISTA AMERICANO DE ORIGEM JUDAICA HÚNGARA. CALVIN KLEIN É TAMBÉM O NOME DE SUA MARCA DE ROUPAS, COMERCIALIZADA PELA SUA EMPRESA, INAUGURADA EM 1978.HOJE, SUA MARCA, CULA LOJA MATRIZ É SITUADA EM NOVA YORK, É UMA DAS GRIFES MAIS FAMOSAS DO MUNDO.</ion-card-subtitle>
+          </ion-card-header>
+  
+          <ion-card-content>
+  
+          </ion-card-content>
+          <ion-row>
+            <ion-col offset="2" size="4" align-self-center text-center>
+              <button type="button" class="btn btn-info" (click)="viewMarca(marcas)" size="large">Ver mais</button>
+            </ion-col>
+            <ion-col size="4" align-self-center text-center>
+              <button type="button" class="btn btn-danger" (click)="remove(marcas)" size="large">Excluir</button>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  
+    <ion-row>
+      <ion-col align-self-center text-center>
+        <ion-card *ngFor="let marcas of nossasMarcas">
+          <div>
+            <img width="75%" src="https://digitaldecor.pt/wp-content/uploads/2017/11/u3k9nryh.jpg">
+          </div>
+          <ion-card-header class="text">
+            <ion-card-title>Nike</ion-card-title>
+            <ion-card-subtitle>NÃO MUDE O SEU SONHO. MUDE O MUNDO. JUST DO IT</ion-card-subtitle>
+          </ion-card-header>
+  
+          <ion-card-content>
+  
+          </ion-card-content>
+          <ion-row>
+            <ion-col offset="2" size="4" align-self-center text-center>
+              <button type="button" class="btn btn-info" (click)="viewMarca(marcas)" size="large">Ver mais</button>
+            </ion-col>
+            <ion-col size="4" align-self-center text-center>
+              <button type="button" class="btn btn-danger" (click)="remove(marcas)" size="large">Excluir</button>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  
+    <ion-row>
+      <ion-col align-self-center text-center>
+        <ion-card *ngFor="let marcas of nossasMarcas">
+          <div>
+            <img width="75%" src="https://http2.mlstatic.com/oakley-masculino-tnis-D_NQ_NP_609504-MLB27867835427_072018-F.jpg">
+          </div>
+          <ion-card-header class="text">
+            <ion-card-title>OAKLEY</ion-card-title>
+            <ion-card-subtitle>A CALIFORNIANA OAKLEY, QUE GANHOU NOTORIEDADE COM OS DESENHOS ESPALHAFATOSOS DE SEUS ÓCULOS, TORNOU-SE UMA DAS MARCAS MAIS COBIÇADAS DO MUNDO, UTILIZANDO A TECNOLOGIA DE PONTA ALIADA A UMA LINHA DE DESIGN FUTURISTA.</ion-card-subtitle>
+          </ion-card-header>
+  
+          <ion-card-content>
+  
+          </ion-card-content>
+          <ion-row>
+            <ion-col offset="2" size="4" align-self-center text-center>
+              <button type="button" class="btn btn-info" (click)="viewMarca(marcas)" size="large">Ver mais</button>
+            </ion-col>
+            <ion-col size="4" align-self-center text-center>
+              <button type="button" class="btn btn-danger" (click)="remove(marcas)" size="large">Excluir</button>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  
+    <ion-row>
+      <ion-col align-self-center text-center>
+        <ion-card *ngFor="let marcas of nossasMarcas">
+          <div>
+            <img width="75%" src="data:image/png;base64,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">
+          </div>
+          <ion-card-header>
+            <ion-card-title>FOREVER 21</ion-card-title>
+            <ion-card-subtitle>FOREVER 21 É UMA EMPRESA DE ROUPAS VAREJISTAS, COM SUA SEDE EM LOS ANGELES - CALIFÓRNIA E COM VENDAS DE APROXIMADAMENTE 4,4 BILHÕES DE DÓLARES POR ANO. HOJE CERCA DE 60% DOS ARTIGOS TÊXTEIS Á VENDA SÃO FABRICADOS NA CHINA, E A LOJA É CONHECIDA PRINCIPALMENTE PELA VARIEDADE DE PREÇOS E SUAS OFERTAS DA MODA.</ion-card-subtitle>
+          </ion-card-header>
+  
+          <ion-card-content>
+  
+          </ion-card-content>
+          <ion-row>
+            <ion-col offset="2" size="4" align-self-center text-center>
+              <button type="button" class="btn btn-info" (click)="viewMarca(marcas)" size="large">Ver mais</button>
+            </ion-col>
+            <ion-col size="4" align-self-center text-center>
+              <button type="button" class="btn btn-danger" (click)="remove(marcas)" size="large">Excluir</button>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  
+    <ion-row>
+      <ion-col align-self-center text-center>
+        <ion-card *ngFor="let marcas of nossasMarcas">
+          <div>
+            <img width="75%" src="https://abrilmdemulher.files.wordpress.com/2019/01/zara-1.jpg">
+          </div>
+          <ion-card-header class="text">
+            <ion-card-title>ZARA</ion-card-title>
+            <ion-card-subtitle>A ZARA É UMA REDE DE LOJAS GALEGA DE ROUPA, CALÇADO E ACESSÓRIOS PARA O PÚBLICO FEMININO, MASCULINO E INFANTIL.</ion-card-subtitle>
+          </ion-card-header>
+  
+          <ion-card-content>
+  
+          </ion-card-content>
+          <ion-row>
+            <ion-col offset="2" size="4" align-self-center text-center>
+              <button type="button" class="btn btn-info" (click)="viewMarca(marcas)" size="large">Ver mais</button>
+            </ion-col>
+            <ion-col size="4" align-self-center text-center>
+              <button type="button" class="btn btn-danger" (click)="remove(marcas)" size="large">Excluir</button>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+      </ion-col>
+    </ion-row>
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-    crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
-</ion-content>
+  </ion-content>
