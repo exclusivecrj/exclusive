@@ -63,7 +63,12 @@ export class CadastroDeClientePage implements OnInit {
     toast.present();
   }
 
-
+  cart(){
+    this.router.navigate(['/carrinho'])
+  }
+  search(){
+    this.router.navigate(['/roupas'])
+  } 
 
 
 }

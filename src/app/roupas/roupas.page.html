@@ -5,14 +5,15 @@
     </ion-menu-button>
     <img width="50%" src="../../assets/img/logo14.png">
     </ion-buttons>
-<!--    <h4 class="h4">Lista de Roupas</h4> -->
-    <ion-button slot="end">
+    <ion-button slot="end" (click)="showPopover($event)">
         <ion-icon name="arrow-dropdown"></ion-icon>
-                filtros
+          FILTROS
     </ion-button>
   </ion-toolbar>
 </ion-header>
+
 <ion-searchbar #textoBusca animated placeholder="Procurar" debounce="500" (ionChange)="busca()"></ion-searchbar>
+
 <ion-content  class="testeFont">
 
   <ion-fab (click)="cart()" vertical="top" horizontal="end" slot="fixed">

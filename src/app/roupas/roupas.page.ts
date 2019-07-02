@@ -8,6 +8,7 @@ import { StorageService } from '../service/storage.service';
 import { Item } from '../model/item';
 import { ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { FiltroPage } from '../filtro/filtro.page';
 
 
 
@@ -17,6 +18,8 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./roupas.page.scss'],
 })
 export class RoupasPage implements OnInit {
+
+  popoverData;
 
   @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
   @ViewChild("textoBusca") textoBusca;
@@ -42,7 +45,7 @@ export class RoupasPage implements OnInit {
     public loadingController: LoadingController,
     public toastController: ToastController,
     public storageServ: StorageService,
-    public popoverController: PopoverController,
+    private popoverController: PopoverController,
     public activateRoute: ActivatedRoute) {
 
 
@@ -60,6 +63,16 @@ export class RoupasPage implements OnInit {
     }
 
 
+  }
+
+  
+  async showPopover(ev: any) {
+    const popover = await this.popoverController.create({
+      component: FiltroPage,
+      event: ev,
+      translucent: true
+    });
+    return await popover.present();
   }
   /*
     loadData(event) {
@@ -224,17 +237,6 @@ export class RoupasPage implements OnInit {
 
 
 
-  async presentPopover() {
-    const popoverController = document.querySelector('ion-popover-controller');
-    await popoverController.componentOnReady();
-
-    const popoverElement = await popoverController.create({
-      component: 'profile-page',
-      event: event
-    });
-    return await popoverElement.present();
-  }
-
   // ion-fab dos redirecionamentos
   cart() {
     this.router.navigate(['/carrinho'])
@@ -248,5 +250,6 @@ export class RoupasPage implements OnInit {
   logout() {
     this.router.navigate(['/logoff'])
   }
+
 
 }

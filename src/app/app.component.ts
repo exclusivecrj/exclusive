@@ -83,6 +83,11 @@ export class AppComponent {
       url: '/logista',
       icon: ''
     },
+    {
+      title: 'Pré Login',
+      url: '/pre-login',
+      icon: 'contact'
+    },
   ];
   //cadastro-de-clientes
 

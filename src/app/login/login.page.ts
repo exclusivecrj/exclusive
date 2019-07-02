@@ -60,7 +60,7 @@ export class LoginPage implements OnInit {
       .then(() => {
         console.log('Logado com sucesso');
         this.toast('Login efetuado com sucesso');
-        this.router.navigate(['/cadastrarlogista'])
+        // this.router.navigate(['/cadastrarlogista']);
         this.loadingController.dismiss();
       })
       .catch(() => {
@@ -75,6 +75,7 @@ export class LoginPage implements OnInit {
       .then(() => {
         console.log("Cadastrado com sucesso!");
         this.toast('Cadastrado com sucesso');
+        this.router.navigate(['/cadastrarlogista']);
         this.loadingController.dismiss();
       }).catch(() => {
         console.log("Usuário inválido");

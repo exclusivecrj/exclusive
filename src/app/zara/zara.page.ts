@@ -70,4 +70,11 @@ export class ZaraPage implements OnInit {
     await loading.present();
   }
 
+  cart(){
+    this.router.navigate(['/carrinho'])
+  }
+  search(){
+    this.router.navigate(['/roupas'])
+  } 
+
 }

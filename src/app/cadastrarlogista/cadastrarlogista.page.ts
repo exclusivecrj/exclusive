@@ -64,4 +64,11 @@ export class CadastrarlogistaPage implements OnInit {
       })
   }
 
+  cart(){
+    this.router.navigate(['/carrinho'])
+  }
+  search(){
+    this.router.navigate(['/roupas'])
+  } 
+
 }

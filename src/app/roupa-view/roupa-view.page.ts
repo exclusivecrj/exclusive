@@ -96,4 +96,11 @@ export class RoupaViewPage implements OnInit {
       })
   }
 
+  cart(){
+    this.router.navigate(['/carrinho'])
+  }
+  search(){
+    this.router.navigate(['/roupas'])
+  } 
+
 }

@@ -23,6 +23,8 @@ export class CadastroMarcaPage implements OnInit {
 
     this.formGroup = this.formBuilder.group({
       nome: [''],
+      desc: [''],
+      slogan: [''],
 
     })
   }
@@ -57,6 +59,13 @@ export class CadastroMarcaPage implements OnInit {
         duration: 2000
       });
       toast.present();
+    }
+
+    cart(){
+      this.router.navigate(['/carrinho'])
+    }
+    search(){
+      this.router.navigate(['/roupas'])
     }
   }
 

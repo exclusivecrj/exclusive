@@ -111,10 +111,8 @@ const routes: Routes = [
   },
   {
     path: 'zara', loadChildren: './zara/zara.module#ZaraPageModule'
-  }
-
-
-
+  },  { path: 'pre-login', loadChildren: './pre-login/pre-login.module#PreLoginPageModule' },
+  { path: 'filtro', loadChildren: './filtro/filtro.module#FiltroPageModule' }
 
 
 ];

@@ -43,4 +43,5 @@ export class CarrinhoPage implements OnInit {
     this.router.navigate(['/logoff'])
   }
 
+
 }

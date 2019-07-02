@@ -7,32 +7,34 @@
 
     <img class="menu" src="../../assets/img/logo13.png">
 
-    <ion-button slot="end">
+    <ion-button slot="end" (click)="cart()">
       <ion-icon name="cart" class="icon2"></ion-icon>
     </ion-button>
-    <ion-button slot="end">
+    <ion-button slot="end" (click)="search()">
       <ion-icon name="search" class="icon2"></ion-icon>
     </ion-button>
   </ion-buttons>
 
 </ion-header>
 
-<form [formGroup]="formGroup" (ngSubmit)="cadastrar()">
-  <ion-list>
-    <ion-item>
-      <ion-label floating>Nome</ion-label>
-      <ion-input formControlName="nome" type="text"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label floating>Descrição</ion-label>
-      <ion-input formControlName="desc" type="text"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label floating>Slogan</ion-label>
-      <ion-input formControlName="slogan" type="text"></ion-input>
-    </ion-item>
-  </ion-list>
-  <ion-button expand="full" (click)="cadastrar()">Cadastrar</ion-button>
-</form>
+<ion-content>
+
+  <form [formGroup]="formGroup" (ngSubmit)="cadastrar()">
+    <ion-list>
+      <ion-item>
+        <ion-label floating>Nome</ion-label>
+        <ion-input formControlName="nome" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Descrição</ion-label>
+        <ion-input formControlName="desc" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Slogan</ion-label>
+        <ion-input formControlName="slogan" type="text"></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-button expand="full" (click)="cadastrar()">Cadastrar</ion-button>
+  </form>
 
 </ion-content>
