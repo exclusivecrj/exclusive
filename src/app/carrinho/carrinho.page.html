@@ -23,7 +23,7 @@
     <ion-col align-self-center text-center>
       <ion-card *ngFor="let pedido of pedido.itens">
         <div>
-          <img width="100%" src="{{pedido?.imagem}}">
+            <img width="100%" src="{{pedido?.roupas.img}}">
         </div>
         <ion-card-header>
           <h5> {{pedido?.roupas.roupa}} </h5>
@@ -66,6 +66,14 @@
 
     </ion-fab-list>
   </ion-fab>
+
+  <ion-col offset="3" size="3" align-self-center text-center>
+    <ion-button (click)="finalizarCompra(marcas)">
+      Finalizar Compra
+    </ion-button>
+  
+
+  </ion-col>
 
 
 </ion-content>

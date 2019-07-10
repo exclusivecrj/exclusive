@@ -3,6 +3,8 @@ import { Pedido } from '../model/pedido';
 import { StorageService } from '../service/storage.service';
 import { roupas } from '../model/roupas';
 import { Router } from '@angular/router';
+import { Marcas } from '../model/marcas';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-carrinho',
@@ -11,13 +13,20 @@ import { Router } from '@angular/router';
 })
 export class CarrinhoPage implements OnInit {
 
-  pedido : Pedido = new Pedido();
+  firestore = firebase.firestore();
+  imagem;
+  settings = { timestampsInSnapshots: true };
+  filtro;
+  valor;
+  id: string;
 
-  constructor(public storageServ:StorageService,
-    public router : Router,){
+  pedido: Pedido = new Pedido();
+
+  constructor(public storageServ: StorageService,
+    public router: Router, ) {
     this.pedido = storageServ.getCart();
-    
-   }
+
+  }
 
   ngOnInit() {
   }
@@ -43,5 +52,19 @@ export class CarrinhoPage implements OnInit {
     this.router.navigate(['/logoff'])
   }
 
+  finalizarCompra(){
+    this.router.navigate(['/finaliza-compra']);
+  }
 
+  downloadFoto() {
+    let ref = firebase.storage().ref()
+      .child(`carrinho/${this.id}.jpg`);
+
+    ref.getDownloadURL().then(url => {
+      this.imagem = url;
+    })
+  }
 }
+
+
+

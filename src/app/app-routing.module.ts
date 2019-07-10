@@ -5,7 +5,7 @@ import { Auth2Guard } from './service/auth2.guard';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'pre-login',
     pathMatch: 'full'
   },
   {
@@ -111,8 +111,20 @@ const routes: Routes = [
   },
   {
     path: 'zara', loadChildren: './zara/zara.module#ZaraPageModule'
-  },  { path: 'pre-login', loadChildren: './pre-login/pre-login.module#PreLoginPageModule' },
-  { path: 'filtro', loadChildren: './filtro/filtro.module#FiltroPageModule' }
+  },
+  {
+    path: 'pre-login',
+    loadChildren: './pre-login/pre-login.module#PreLoginPageModule'
+  },
+  {
+    path: 'filtro',
+    loadChildren: './filtro/filtro.module#FiltroPageModule'
+  },  { path: 'cadastrar-perfil', loadChildren: './cadastrar-perfil/cadastrar-perfil.module#CadastrarPerfilPageModule' },
+  { path: 'lista-perfil', loadChildren: './lista-perfil/lista-perfil.module#ListaPerfilPageModule' },
+  { path: 'edita-perfil', loadChildren: './edita-perfil/edita-perfil.module#EditaPerfilPageModule' },
+  { path: 'roupa-modal', loadChildren: './roupa-modal/roupa-modal.module#RoupaModalPageModule' },
+  { path: 'roupas-lista', loadChildren: './roupas-lista/roupas-lista.module#RoupasListaPageModule' }
+
 
 
 ];

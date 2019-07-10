@@ -49,7 +49,6 @@ export class RoupaViewPage implements OnInit {
     var ref = firebase.firestore().collection("roupas").doc(this.id);
     ref.get().then(doc => {
       this.roupas.setDados(doc.data());
-      this.form();
     }).catch(function (error) {
       console.log("Error getting document: ", error);
     });

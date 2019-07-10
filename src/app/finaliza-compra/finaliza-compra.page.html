@@ -1,11 +1,132 @@
-<ion-header>
+<ion-content class="testeFont">
 
-
-
-</ion-header>
-
-<ion-content padding>
- 
-
-
-</ion-content>
+        <ion-slides pager="false" [options]="slideOpts">
+          <ion-slide>
+            <div>
+              <h1>Finalizar Compra</h1>
+      
+              <div class="box1">
+                <ion-item>
+                  <ion-label class="">CPF ou CNPJ:</ion-label>
+                  <ion-input type="text" value="" #cpf></ion-input>
+                </ion-item>
+              </div>
+      
+              <div class="box2">
+                <ion-item>
+                  <ion-label fixed>Endereco:</ion-label>
+                  <ion-input type="text" value="" #endereco></ion-input>
+                </ion-item>
+              </div>
+              <div class="box3">
+              </div>
+              <div class="box4">
+                <ion-item>
+                  <ion-label fixed>Bairro:</ion-label>
+                  <ion-input type="text" value="" #bairro></ion-input>
+                </ion-item>
+              </div>
+              <div class="box5">
+                <ion-item>
+                  <ion-label fixed>Complemento:</ion-label>
+                  <ion-input type="text" value="" #complemento></ion-input>
+                </ion-item>
+              </div>
+              <div class="box6">
+                <ion-item>
+                  <ion-label fixed>Número:</ion-label>
+                  <ion-input type="text" value="" #numero></ion-input>
+                </ion-item>
+              </div>
+              <div class="box7">
+                <ion-item>
+                  <ion-label fixed>CEP:</ion-label>
+                  <ion-input type="text" value="" #cep></ion-input>
+                </ion-item>
+              </div>
+      
+              <ion-card>
+                <ion-card-header>
+                  <ion-card-title>Calcule aqui o seu frete!</ion-card-title>
+                  <ion-card-subtitle>Insira o seu CEP</ion-card-subtitle>
+                </ion-card-header>
+                <ion-item>
+      
+                  <ion-label fixed>CEP:</ion-label>
+                  <ion-input type="text" value="" #senha3></ion-input>
+                </ion-item>
+      
+                <ion-card-content>
+                  O VALOR DO FRETE PODE VARIAR MEDIANTE A DISTÂNCIA!
+                </ion-card-content>
+      
+                <a href="http://www2.correios.com.br/encomendas/malote/simular_preco.cfm">
+                  <ion-button color="tertiary" (click)="cadastrar()" expand="block">
+                    CALCULAR FRETE
+                  </ion-button>
+                </a>
+              </ion-card>
+      
+              <a href="https://sitedeapostasonline.net/wp-content/uploads/2018/02/boleto-banc%C3%A1rio-apostas-online.jpg">
+                <ion-button color="tertiary" (click)="cadastrar()" expand="block">
+                  Emitir boleto
+                </ion-button>
+              </a>
+              <ion-button color="tertiary" (click)="user()" expand="block" color="dark">
+                <ion-icon color="primary" name="arrow-forward" slot="start"></ion-icon>
+                Finalizar compra
+              </ion-button>
+            </div>
+      
+          </ion-slide>
+          <ion-slide>
+            <div>
+              <h1>Formas de pagamento</h1>
+              <p></p>
+              <ion-item>
+                <ion-label class="">Nº do cartão</ion-label>
+                <ion-input type="text" value="" #email1></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label class="">Data de validade</ion-label>
+                <ion-input type="text" value="" #email1></ion-input>
+              </ion-item>
+              <ion-item>
+                  <ion-label class="">Data de expedição</ion-label>
+                  <ion-input type="text" value="" #email1></ion-input>
+                </ion-item>
+              <ion-item>
+                <ion-label class="">Código de segurança</ion-label>
+                <ion-input type="text" value="" #email1></ion-input>
+              </ion-item>
+      
+      
+              <ion-button color="tertiary" (click)="logar()" expand="block" color="dark">Entrar</ion-button>
+              <ion-button color="tertiary" (click)="user()" expand="block" color="dark">Cadastrar como Usuário</ion-button>
+      
+            </div>
+          </ion-slide>
+      
+        </ion-slides>
+      
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+      
+        <div class="test">
+          <ion-segment>
+            <ion-segment-button (click)="proximo()">
+              <ion-label>Formas de pagamento</ion-label>
+            </ion-segment-button>
+            <ion-segment-button (click)="anterior()">
+              <ion-label>Cadastro</ion-label>
+            </ion-segment-button>
+          </ion-segment>
+        </div>
+      
+      </ion-content>
+      
+      <link href="https://fonts.googleapis.com/css?family=Bitter&display=swap" rel="stylesheet">

@@ -1,0 +1,79 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start"><ion-menu-button>
+        <ion-icon class="icon" name="list"></ion-icon>
+      </ion-menu-button>
+      <img width="50%" src="../../assets/img/logo14.png">
+      </ion-buttons>
+      <ion-button slot="end" (click)="showPopover($event)">
+          <ion-icon name="arrow-dropdown"></ion-icon>
+            FILTROS
+      </ion-button>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content  class="testeFont">
+  
+    <ion-fab (click)="cart()" vertical="top" horizontal="end" slot="fixed">
+      <ion-fab-button>
+        <ion-icon name="cart"></ion-icon>
+        <ion-badge color="primary" *ngIf="pedido != null">{{pedido.itens.length}}</ion-badge>
+      </ion-fab-button>
+    </ion-fab>
+  
+    <ion-row>
+      <ion-col align-self-center text-center>
+        <ion-card *ngFor="let roupas of listaDeRoupas" (click)="presentModal(roupas)">
+          <div>
+              <img width="80%" src="{{roupas?.img}}">
+          </div>
+          <ion-card-header>
+            <ion-card-title> {{roupas?.roupa}} </ion-card-title>
+            <ion-card-subtitle>R$ {{roupas?.preco}} </ion-card-subtitle>
+            <ion-card-subtitle> {{roupas?.cor}} </ion-card-subtitle>
+          </ion-card-header>
+  
+  
+  
+          <ion-button color="tertiary" (click)="addCarrinho(roupas)">
+              <ion-icon name="add"></ion-icon> Adicionar ao carrinho
+          </ion-button>
+          <ion-button color="danger" (click)="remove(roupas)">
+              <ion-icon name="trash"></ion-icon>Excluir
+          </ion-button>
+          <ion-button color="danger" (click)="viewRoupa(roupas)">
+            <ion-icon name="cloud-upload"></ion-icon>atualizar
+        </ion-button>
+          <br>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  
+  
+    <ion-fab class="contat" vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button>
+          <ion-icon name="settings"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-list class="teste" side="start">
+    
+          <ion-fab-button class="btn" (click)="logout()">
+            <ion-icon class="img" name="log-out"></ion-icon>
+          </ion-fab-button>
+    
+          <ion-fab-button class="btn" (click)="search()">
+            <ion-icon class="img" name="search"></ion-icon>
+          </ion-fab-button>
+    
+          <ion-fab-button class="btn" (click)="contact()">
+            <ion-icon class="img" name="contact"></ion-icon>
+          </ion-fab-button>
+    
+          <ion-fab-button class="btn" (click)="cart()">
+            <ion-icon class="img" name="cart"></ion-icon>
+          </ion-fab-button>
+    
+        </ion-fab-list>
+      </ion-fab>
+  
+  </ion-content> 
+  

@@ -5,14 +5,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { RoupasPage } from './roupas.page';
-import { FiltroPage } from '../filtro/filtro.page';
-import { RoupaModalPage } from 'src/app/roupa-modal/roupa-modal.page';
+import { CadastrarPerfilPage } from './cadastrar-perfil.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: RoupasPage
+    component: CadastrarPerfilPage
   }
 ];
 
@@ -21,10 +19,9 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    ReactiveFormsModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    ReactiveFormsModule
   ],
-  declarations: [RoupasPage,FiltroPage],
-  entryComponents: [FiltroPage]
+  declarations: [CadastrarPerfilPage]
 })
-export class RoupasPageModule {}
+export class CadastrarPerfilPageModule {}

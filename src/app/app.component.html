@@ -6,9 +6,16 @@
 <ion-menu side="start" menuId="custom" class="my-custom-menu">
   <ion-header>
     <ion-toolbar color="tertiary">
-      <!-- <ion-img src="../../assets/img/logo9.png"></ion-img> -->
-      <h1 slot="start" class="testeFont2"> Menu </h1>
-    </ion-toolbar> 
+      <!-- <ion-img src="../../assets/img/logo9.png"></ion-img> 
+      <h1 class="testeFont2"> Menu </h1> -->
+
+      <ion-button slot="end" shape="round" color="primary" fill="outline" (click)="testcart()">
+        <ion-icon name="ios-cart"></ion-icon>
+      </ion-button>
+      <ion-button slot="end" (click)="perfil()" color="primary" fill="outline" shape="round">
+        <ion-icon name="ios-contact"></ion-icon>
+      </ion-button>
+    </ion-toolbar>
   </ion-header>
 
   <ion-content>

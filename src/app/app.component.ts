@@ -43,6 +43,11 @@ export class AppComponent {
       icon: 'list'
     },
     {
+      title: 'Perfil',
+      url: '/lista-perfil',
+      icon: 'contact'
+    },
+    {
       title: 'Cadastro de Clientes',
       url: '/cadastro-de-cliente',
       icon: 'md-add-circle'
@@ -83,11 +88,6 @@ export class AppComponent {
       url: '/logista',
       icon: ''
     },
-    {
-      title: 'Pré Login',
-      url: '/pre-login',
-      icon: 'contact'
-    },
   ];
   //cadastro-de-clientes
 
@@ -108,4 +108,21 @@ export class AppComponent {
     });
 
   }
+
+  testcart(){
+    this.router.navigate(['/carrinho']);
+  }
+  perfil(){
+    if(this.perfil == null){
+      this.router.navigate(['/cadastrar-perfil']);
+      console.log("Funfou por enquanto");
+    }else{
+
+      this.router.navigate(['/cadastrar-perfil']);
+
+     // this.router.navigate(['/perfil']);
+      console.log("N testado");
+    }
+  }
+
 }

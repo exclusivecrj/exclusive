@@ -5,14 +5,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { RoupasPage } from './roupas.page';
-import { FiltroPage } from '../filtro/filtro.page';
-import { RoupaModalPage } from 'src/app/roupa-modal/roupa-modal.page';
+import { EditaPerfilPage } from './edita-perfil.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: RoupasPage
+    component: EditaPerfilPage
   }
 ];
 
@@ -21,10 +19,9 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    ReactiveFormsModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    ReactiveFormsModule
   ],
-  declarations: [RoupasPage,FiltroPage],
-  entryComponents: [FiltroPage]
+  declarations: [EditaPerfilPage]
 })
-export class RoupasPageModule {}
+export class EditaPerfilPageModule {}

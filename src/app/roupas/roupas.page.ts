@@ -2,13 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { roupas } from '../model/roupas';
 import * as firebase from 'firebase';
 import { Router } from '@angular/router';
-import { LoadingController, ToastController, IonInfiniteScroll, PopoverController, IonSearchbar } from '@ionic/angular';
+import { LoadingController, ToastController, IonInfiniteScroll, PopoverController, IonSearchbar, ModalController } from '@ionic/angular';
 import { Pedido } from '../model/pedido';
 import { StorageService } from '../service/storage.service';
 import { Item } from '../model/item';
 import { ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FiltroPage } from '../filtro/filtro.page';
+import { RoupaModalPage } from 'src/app/roupa-modal/roupa-modal.page';
 
 
 
@@ -24,9 +25,6 @@ export class RoupasPage implements OnInit {
   @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
   @ViewChild("textoBusca") textoBusca;
 
-
-
-
   listaDeRoupas: roupas[] = [];
   firestore = firebase.firestore();
   imagem;
@@ -36,17 +34,15 @@ export class RoupasPage implements OnInit {
   id: string;
 
   pedido: Pedido = new Pedido();
-
-
-
-
+  filtroBox  = "none";
 
   constructor(public router: Router,
     public loadingController: LoadingController,
     public toastController: ToastController,
     public storageServ: StorageService,
     private popoverController: PopoverController,
-    public activateRoute: ActivatedRoute) {
+    public activateRoute: ActivatedRoute,
+    private modalController: ModalController) {
 
 
 
@@ -65,7 +61,7 @@ export class RoupasPage implements OnInit {
 
   }
 
-  
+
   async showPopover(ev: any) {
     const popover = await this.popoverController.create({
       component: FiltroPage,
@@ -74,6 +70,18 @@ export class RoupasPage implements OnInit {
     });
     return await popover.present();
   }
+
+  presentModal(obj: roupas) {
+    this.router.navigate(['/roupa-modal', { 'roupas': obj.id }]);
+  }
+
+  showFilter(){
+    if(this.filtroBox=='none')
+      this.filtroBox = 'block'
+    else
+      this.filtroBox = 'none'
+  }
+
   /*
     loadData(event) {
       setTimeout(() => {
@@ -96,7 +104,10 @@ export class RoupasPage implements OnInit {
   ngOnInit() {
     if (this.filtro == null)
       this.getList();
+  }
 
+  valorSel(){
+    console.log("teste");
   }
 
   busca() {

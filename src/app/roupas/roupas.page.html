@@ -5,6 +5,11 @@
     </ion-menu-button>
     <img width="50%" src="../../assets/img/logo14.png">
     </ion-buttons>
+    <ion-button slot="end" (click)="showFilter()">
+        <ion-icon name="arrow-dropdown"></ion-icon>
+          FILTRAR
+    </ion-button>
+
     <ion-button slot="end" (click)="showPopover($event)">
         <ion-icon name="arrow-dropdown"></ion-icon>
           FILTROS
@@ -15,6 +20,40 @@
 <ion-searchbar #textoBusca animated placeholder="Procurar" debounce="500" (ionChange)="busca()"></ion-searchbar>
 
 <ion-content  class="testeFont">
+    
+
+      <ion-list  [ngStyle]="{'display':filtroBox}">
+          <ion-list-header>Multiple Selection</ion-list-header>
+        
+          <ion-item>
+            <ion-label>Toppings</ion-label>
+            <ion-select multiple="true" cancelText="Nah" okText="Okay!">
+              <ion-select-option value="bacon">Bacon</ion-select-option>
+              <ion-select-option value="olives">Black Olives</ion-select-option>
+              <ion-select-option value="xcheese">Extra Cheese</ion-select-option>
+              <ion-select-option value="peppers">Green Peppers</ion-select-option>
+              <ion-select-option value="mushrooms">Mushrooms</ion-select-option>
+              <ion-select-option value="onions">Onions</ion-select-option>
+              <ion-select-option value="pepperoni">Pepperoni</ion-select-option>
+              <ion-select-option value="pineapple">Pineapple</ion-select-option>
+              <ion-select-option value="sausage">Sausage</ion-select-option>
+              <ion-select-option value="Spinach">Spinach</ion-select-option>
+            </ion-select>
+          </ion-item>
+    
+          
+          <ion-item>
+            <ion-label>Pets</ion-label>
+            <ion-select multiple="true">
+              <ion-select-option value="bird" selected>Bird</ion-select-option>
+              <ion-select-option value="cat">Cat</ion-select-option>
+              <ion-select-option value="dog" selected>Dog</ion-select-option>
+              <ion-select-option value="honeybadger">Honey Badger</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+
+  
 
   <ion-fab (click)="cart()" vertical="top" horizontal="end" slot="fixed">
     <ion-fab-button>
@@ -27,7 +66,7 @@
     <ion-col align-self-center text-center>
       <ion-card *ngFor="let roupas of listaDeRoupas">
         <div>
-            <img width="80%" src="{{roupas?.img}}">
+            <img width="80%" src="{{roupas?.img}}" (click)="presentModal(roupas)">
         </div>
         <ion-card-header>
           <ion-card-title> {{roupas?.roupa}} </ion-card-title>
@@ -77,4 +116,6 @@
       </ion-fab-list>
     </ion-fab>
 
-</ion-content>
+</ion-content> 
+
+<!-- (click)="presentModal($event(roupas))" -->
